@@ -1,0 +1,100 @@
+{
+    "places": [
+        {
+            "id": 1,
+            "name": "Udupi Sri Krishna Matha",
+            "significance": "A renowned Hindu temple and pilgrimage centre dedicated to Lord Krishna in Udupi.",
+            "keyFeatures": [
+                "Sri Krishna temple",
+                "Kanakana Kindi",
+                "Ashta Mathas"
+            ],
+            "latitude": 13.340881,
+            "longitude": 74.751414
+        },
+        {
+            "id": 2,
+            "name": "Corporate Bank Heritage Museum",
+            "significance": "A museum preserving the history of banking and the heritage of Udupi's Corporation Bank.",
+            "keyFeatures": [
+                "Banking history",
+                "Historical documents",
+                "Heritage exhibits"
+            ],
+            "latitude": 13.339722,
+            "longitude": 74.745833
+        },
+        {
+            "id": 3,
+            "name": "Jamia Masjid",
+            "significance": "A historic mosque reflecting the longstanding Muslim community and architectural heritage of Udupi.",
+            "keyFeatures": [
+                "Mosque architecture",
+                "Religious heritage",
+                "Local community"
+            ],
+            "latitude": 13.338889,
+            "longitude": 74.749167
+        },
+        {
+            "id": 4,
+            "name": "Hasta Shilpa Heritage Village Museum",
+            "significance": "An open-air museum showcasing restored traditional homes, crafts, and architecture from coastal Karnataka.",
+            "keyFeatures": [
+                "Traditional houses",
+                "Folk art and crafts",
+                "Coastal architecture"
+            ],
+            "latitude": 13.361944,
+            "longitude": 74.786111
+        },
+        {
+            "id": 5,
+            "name": "Pajaka",
+            "significance": "The birthplace of Sri Madhvacharya and an important centre of the Dvaita Vedanta tradition.",
+            "keyFeatures": [
+                "Madhvacharya birthplace",
+                "Ananteshwara shrine",
+                "Spiritual heritage"
+            ],
+            "latitude": 13.322778,
+            "longitude": 74.779722
+        },
+        {
+            "id": 6,
+            "name": "St. Lawrence Basilica (Attur, Karkala)",
+            "significance": "A prominent Catholic pilgrimage basilica in Attur, known for its annual feast and historic devotional traditions.",
+            "keyFeatures": [
+                "Basilica architecture",
+                "Annual feast",
+                "Pilgrimage site"
+            ],
+            "latitude": 13.214722,
+            "longitude": 74.996389
+        },
+        {
+            "id": 7,
+            "name": "Sri Mookambika Temple",
+            "significance": "A major Hindu temple dedicated to Goddess Mookambika, located in the pilgrimage town of Kollur.",
+            "keyFeatures": [
+                "Mookambika shrine",
+                "Temple traditions",
+                "Pilgrimage centre"
+            ],
+            "latitude": 13.866667,
+            "longitude": 74.816667
+        },
+        {
+            "id": 8,
+            "name": "Ananteshwar Temple",
+            "significance": "A historic Shiva temple in Udupi and one of the region's important centres of worship and heritage.",
+            "keyFeatures": [
+                "Shiva temple",
+                "Historic architecture",
+                "Udupi temple heritage"
+            ],
+            "latitude": 13.339444,
+            "longitude": 74.750278
+        }
+    ]
+}

@@ -1,0 +1,259 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: 0.4px;
+}
+
+#map {
+    height: 100%;
+}
+
+.map-logo {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    z-index: 2;
+    width: min(120px, 24vw);
+    height: auto;
+    max-height: 60px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.logo-text {
+    fill: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-anchor: middle;
+}
+
+.recenter,
+.qr {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 2px;
+
+    height: 40px;
+    width: 40px;
+
+    border-radius: 10px;
+
+    background-color: black;
+
+    z-index: 2;
+
+    cursor: pointer;
+}
+.qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+    right: 70px;
+}
+.qr > img {
+    height: 90%;
+    width: 90%;
+}
+.recenter > svg {
+    height: 100%;
+    width: 100%;
+}
+
+#points-button {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 2;
+    padding: 0 12px;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+#points-award-notice {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background-color: #16803c;
+    color: white;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -10px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+#points-award-notice.visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+#navbar {
+    z-index: 1;
+
+    position: absolute;
+    padding-left: 10px;
+    padding-right: 10px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    border-radius: 10px;
+
+    width: auto;
+    height: fit-content;
+    max-height: 10vh;
+
+    background-color: #141414;
+    color: white;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: max-height 0.2s ease;
+}
+
+#navbar.expanded {
+    max-height: 100vh;
+}
+
+#moreinfocontent {
+    flex: none;
+    max-height: 0;
+    overflow: hidden;
+
+    padding: 0 20px;
+    line-height: 1.2;
+    transition:
+        max-height 0.2s ease,
+        padding 0.2s ease;
+}
+
+#navbar.expanded #moreinfocontent {
+    max-height: 100vh;
+    padding: 20px;
+}
+
+#navbar-main {
+    height: 10vh;
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 20px;
+}
+
+#nearestloc {
+    flex: 1;
+}
+
+#disttonearest {
+    margin-right: 20px;
+}
+
+#moreinfo {
+    cursor: pointer;
+
+    font-size: 25px;
+
+    user-select: none;
+}
+
+#arrow {
+    width: 40px;
+    height: 40px;
+
+    background-size: cover;
+}
+
+#ai-assistant-moreinfo {
+    box-sizing: border-box;
+    flex: 1;
+    min-width: 0;
+    background-color: #48494b;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#ai-assistant-moreinfo:active {
+    border: none;
+}
+
+#ai-ask-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    min-width: 70px;
+    padding: 10px 16px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #48494b;
+    color: #ffffff;
+    font: 10px;
+    cursor: pointer;
+}
+
+.input-button {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    font: "DM Sans", sans-serif;
+}
+
+@media (max-width: 600px) {
+    .input-button {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #ai-assistant-moreinfo,
+    #ai-ask-button {
+        width: 100%;
+    }
+
+    #ai-ask-button {
+        margin-left: 0;
+    }
+}
+.readercont {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 99999;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.5s;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#reader {
+    max-height: 50%;
+    max-width: 50%;
+    background-color: #424242;
+    display: none;
+    border: 0px;
+    pointer-events: auto;
+    border-radius: 5%;
+}

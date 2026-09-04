@@ -1,0 +1,321 @@
+{
+    "places": [
+        {
+            "id": 1,
+            "name": "Udupi Sri Krishna Temple",
+            "significance": "The historic Krishna temple at the heart of Udupi, associated with Madhwacharya and the Ashta Mathas, and famous for the deity being viewed through the Kanakana Kindi.",
+            "keyFeatures": ["Krishna temple", "Kanakana Kindi", "Ashta Mathas"],
+            "studentLife": "Students can explore Udupi's spiritual heritage and temple traditions.",
+            "latitude": 13.3411662,
+            "longitude": 74.7520446
+        },
+        {
+            "id": 2,
+            "name": "Anantheshwara Temple",
+            "significance": "One of the oldest temples in Udupi, traditionally associated with Lord Shiva and the early spiritual life of Madhwacharya.",
+            "keyFeatures": [
+                "Ancient shrine",
+                "Shiva worship",
+                "Madhwacharya heritage"
+            ],
+            "studentLife": "Students can learn about Udupi's early spiritual and temple history.",
+            "latitude": 13.34132,
+            "longitude": 74.75148
+        },
+        {
+            "id": 3,
+            "name": "Chandramouleshwara Temple",
+            "significance": "An ancient Shiva temple opposite Anantheshwara, associated with the traditional legend of Chandra, the Moon god.",
+            "keyFeatures": [
+                "Ancient Shiva temple",
+                "Chandra legend",
+                "Traditional architecture"
+            ],
+            "studentLife": "Students can visit a historic shrine and explore local religious traditions.",
+            "latitude": 13.34178,
+            "longitude": 74.7512
+        },
+        {
+            "id": 4,
+            "name": "Bannanje Mahalingeshwara Temple",
+            "significance": "An ancient stone temple in Bannanje traditionally associated with the 8th-9th centuries and with the religious history of the Udupi region.",
+            "keyFeatures": [
+                "Stone temple",
+                "Historic shrine",
+                "Coastal heritage"
+            ],
+            "studentLife": "Students can observe traditional stone architecture and regional religious history.",
+            "latitude": 13.3405,
+            "longitude": 74.7378
+        },
+        {
+            "id": 5,
+            "name": "Ambalpadi Janardhana and Mahakali Temple",
+            "significance": "A historic temple complex featuring Lord Janardhana and Goddess Mahakali, with a traditional sacred pond and long-standing cultural importance in Udupi.",
+            "keyFeatures": [
+                "Janardhana shrine",
+                "Mahakali shrine",
+                "Sacred pond"
+            ],
+            "studentLife": "Students can experience a living temple complex and its cultural traditions.",
+            "latitude": 13.33749,
+            "longitude": 74.73396
+        },
+        {
+            "id": 6,
+            "name": "Mount Rosary Church",
+            "significance": "A historic Roman Catholic church in Kallianpur near Udupi, built in 1837 and known for its coastal Christian heritage and stained-glass interiors.",
+            "keyFeatures": [
+                "Roman Catholic church",
+                "Stained glass",
+                "Coastal Christian heritage"
+            ],
+            "studentLife": "Students can study the church's architecture and coastal Christian history.",
+            "latitude": 13.3678,
+            "longitude": 74.7389
+        },
+        {
+            "id": 7,
+            "name": "Our Lady of Miracles Cathedral, Kallianpur",
+            "significance": "A historic Catholic cathedral at Kallianpur representing the long-standing Indo-Portuguese and Christian heritage of coastal Udupi.",
+            "keyFeatures": [
+                "Historic cathedral",
+                "Indo-Portuguese heritage",
+                "Christian architecture"
+            ],
+            "studentLife": "Students can explore the region's diverse religious and architectural heritage.",
+            "latitude": 13.3742,
+            "longitude": 74.7372
+        },
+        {
+            "id": 8,
+            "name": "Barkur Heritage Town",
+            "significance": "An ancient settlement on the banks of the Sita River that was an important regional centre under the Alupas and later dynasties, known for its concentration of historic temples and ruins.",
+            "keyFeatures": [
+                "Ancient settlement",
+                "Historic temples",
+                "Sita River"
+            ],
+            "studentLife": "Students can explore historic ruins and the political history of coastal Karnataka.",
+            "latitude": 13.4668,
+            "longitude": 74.7498
+        },
+        {
+            "id": 9,
+            "name": "Kathale Basadi, Barkur",
+            "significance": "An ancient Jain monument at Barkur built from dark stone, featuring ruined mandapas and a prominent monolithic victory pillar.",
+            "keyFeatures": [
+                "Jain monument",
+                "Dark stone",
+                "Monolithic victory pillar"
+            ],
+            "studentLife": "Students can examine Jain architecture and the remains of Barkur's historic landscape.",
+            "latitude": 13.470083,
+            "longitude": 74.751691
+        },
+        {
+            "id": 10,
+            "name": "Panchalingeshwara Temple, Barkur",
+            "significance": "One of Barkur's major historic temples, dedicated to five manifestations of Shiva and noted for its traditional coastal temple architecture.",
+            "keyFeatures": [
+                "Five Shiva forms",
+                "Historic temple",
+                "Coastal architecture"
+            ],
+            "studentLife": "Students can learn about temple design and Shaiva traditions in Barkur.",
+            "latitude": 13.4660204,
+            "longitude": 74.74662059
+        },
+        {
+            "id": 11,
+            "name": "Batte Vinayaka Temple, Barkur",
+            "significance": "An old Barkur shrine dedicated to Ganesha, known for its historic stone image and its place within the ancient temple landscape of Barkur.",
+            "keyFeatures": [
+                "Ganesha shrine",
+                "Stone image",
+                "Barkur temple landscape"
+            ],
+            "studentLife": "Students can visit a historic shrine within the wider heritage town of Barkur.",
+            "latitude": 13.46605978,
+            "longitude": 74.74708608
+        },
+        {
+            "id": 12,
+            "name": "Barkur Fort Ruins",
+            "significance": "The remains of a historic fortification at Barkur, reflecting the town's importance as a strategic and political centre in coastal Karnataka.",
+            "keyFeatures": [
+                "Fortification ruins",
+                "Strategic history",
+                "Political heritage"
+            ],
+            "studentLife": "Students can investigate the remains and Barkur's role in regional history.",
+            "latitude": 13.47066,
+            "longitude": 74.75562
+        },
+        {
+            "id": 13,
+            "name": "Suralu Palace",
+            "significance": "A rare surviving mud-and-timber palace associated with the Tolaha rulers, dating to around 1500 CE and combining Hindu and Jain decorative traditions.",
+            "keyFeatures": [
+                "Mud-and-timber palace",
+                "Tolaha rulers",
+                "Hindu and Jain design"
+            ],
+            "studentLife": "Students can study historic building materials and blended decorative traditions.",
+            "latitude": 13.446944,
+            "longitude": 74.855
+        },
+        {
+            "id": 14,
+            "name": "Mahalinga Temple, Brahmavara",
+            "significance": "A historic Shiva temple in Brahmavara traditionally dated to around the 9th century and representative of early temple traditions in coastal Karnataka.",
+            "keyFeatures": [
+                "Shiva temple",
+                "Early temple tradition",
+                "Historic architecture"
+            ],
+            "studentLife": "Students can explore early temple traditions in coastal Karnataka.",
+            "latitude": 13.435,
+            "longitude": 74.746
+        },
+        {
+            "id": 15,
+            "name": "Varanga Jain Basadi",
+            "significance": "A historic Jain temple complex at Varanga, famous for its tranquil setting and the basadi located beside and within the sacred lake landscape.",
+            "keyFeatures": [
+                "Jain temple complex",
+                "Sacred lake",
+                "Basadi architecture"
+            ],
+            "studentLife": "Students can experience Jain heritage in a distinctive lake setting.",
+            "latitude": 13.39619,
+            "longitude": 75.00855
+        },
+        {
+            "id": 16,
+            "name": "Karkala Gomateshwara Statue",
+            "significance": "A 42-foot monolithic statue of Bahubali erected in 1432, one of the most important Jain monuments in the Udupi region.",
+            "keyFeatures": [
+                "42-foot statue",
+                "Monolithic sculpture",
+                "Jain monument"
+            ],
+            "studentLife": "Students can study monumental sculpture and medieval Jain heritage.",
+            "latitude": 13.203967,
+            "longitude": 75.005558
+        },
+        {
+            "id": 17,
+            "name": "Chaturmukha Basadi, Karkala",
+            "significance": "A distinctive Jain basadi in Karkala with four symmetrical entrances, representing the region's important medieval Jain architectural tradition.",
+            "keyFeatures": [
+                "Four entrances",
+                "Jain basadi",
+                "Medieval architecture"
+            ],
+            "studentLife": "Students can examine the basadi's symmetry and medieval Jain design.",
+            "latitude": 13.20865,
+            "longitude": 75.004878
+        },
+        {
+            "id": 18,
+            "name": "St. Lawrence Shrine Basilica, Attur",
+            "significance": "A historic Catholic shrine in Attur near Karkala, dating to the 18th century and known for its distinctive religious and architectural heritage.",
+            "keyFeatures": [
+                "Catholic basilica",
+                "18th-century heritage",
+                "Pilgrimage site"
+            ],
+            "studentLife": "Students can explore Attur's religious history and distinctive architecture.",
+            "latitude": 13.205931,
+            "longitude": 74.972056
+        },
+        {
+            "id": 19,
+            "name": "Anegudde Sri Vinayaka Temple",
+            "significance": "A historic Ganesha temple at Anegudde in the Kundapura region, situated on a hillock and traditionally counted among the important sacred sites of the region.",
+            "keyFeatures": ["Ganesha temple", "Hillock shrine", "Sacred site"],
+            "studentLife": "Students can experience a major pilgrimage site in the Kundapura region.",
+            "latitude": 13.569342,
+            "longitude": 74.704239
+        },
+        {
+            "id": 20,
+            "name": "Kotilingeshwara Temple, Koteshwara",
+            "significance": "An important historic Shiva temple at Koteshwara, associated with the ancient religious landscape of the Kundapura region.",
+            "keyFeatures": [
+                "Shiva temple",
+                "Historic shrine",
+                "Kundapura heritage"
+            ],
+            "studentLife": "Students can learn about the ancient religious landscape of Kundapura.",
+            "latitude": 13.58871,
+            "longitude": 74.69347
+        },
+        {
+            "id": 21,
+            "name": "Basrur Heritage Village",
+            "significance": "A historic settlement near Kundapura known for its old temples, inscriptions, merchant-guild history, and importance as an ancient port town.",
+            "keyFeatures": [
+                "Historic settlement",
+                "Inscriptions",
+                "Ancient port town"
+            ],
+            "studentLife": "Students can explore trade, inscriptions, and the history of coastal settlements.",
+            "latitude": 13.6167,
+            "longitude": 74.7167
+        },
+        {
+            "id": 22,
+            "name": "Nakhareshwara Temple, Basrur",
+            "significance": "An historically significant temple at Basrur associated with a medieval merchant guild and an inscription dating to the 12th century.",
+            "keyFeatures": [
+                "Historic temple",
+                "Merchant guild",
+                "12th-century inscription"
+            ],
+            "studentLife": "Students can connect religious heritage with medieval trade history.",
+            "latitude": 13.616,
+            "longitude": 74.716
+        },
+        {
+            "id": 23,
+            "name": "Tuluveshwara Temple, Basrur",
+            "significance": "An old Shiva temple in Basrur whose surviving shrine is surrounded by vegetation, forming part of the area's historic temple landscape.",
+            "keyFeatures": [
+                "Shiva shrine",
+                "Temple ruins",
+                "Historic landscape"
+            ],
+            "studentLife": "Students can observe how historic shrines remain part of the local landscape.",
+            "latitude": 13.6165,
+            "longitude": 74.7155
+        },
+        {
+            "id": 24,
+            "name": "Keshavanatheshwara Temple, Moodugallu",
+            "significance": "A historic Shiva shrine at Moodugallu known for its traditional coastal architecture and nearby natural laterite rock caves.",
+            "keyFeatures": [
+                "Shiva shrine",
+                "Coastal architecture",
+                "Laterite rock caves"
+            ],
+            "studentLife": "Students can explore the relationship between temple architecture and the natural setting.",
+            "latitude": 13.35,
+            "longitude": 74.93
+        },
+        {
+            "id": 25,
+            "name": "St. Mary's Island Geological Heritage Site",
+            "significance": "A protected geological heritage destination off Malpe, famous for its distinctive hexagonal columnar basalt formations created by ancient volcanic activity.",
+            "keyFeatures": [
+                "Geological heritage",
+                "Columnar basalt",
+                "Volcanic formations"
+            ],
+            "studentLife": "Students can study coastal geology and distinctive volcanic rock formations.",
+            "latitude": 13.381,
+            "longitude": 74.673
+        }
+    ]
+}
