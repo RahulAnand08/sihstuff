@@ -1,88 +1,73 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>RAAHI Auth Demo</title>
-	</head>
-	<body>
-		<h2>Welcome to RAAHI</h2>
-
-		<div>
-			<input type="email" id="email" placeholder="Email" />
-			<input type="password" id="password" placeholder="Password" />
-			<button id="signUpBtn">Sign Up</button>
-			<button id="signInBtn">Sign In</button>
-		</div>
-
-		<p id="status">Loading status...</p>
-
-		<!-- Load Firebase using ES Modules via CDN -->
-		<script type="module">
-			import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-			import {
-				getAuth,
-				createUserWithEmailAndPassword,
-				signInWithEmailAndPassword,
-				onAuthStateChanged,
-			} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-			// Your actual Firebase configuration
-			const firebaseConfig = {
-				apiKey: "AIzaSyAw6n2iv66iLNr_ZD4JI4rbTBRFpiUuV9g",
-				authDomain: "raahi-63fed.firebaseapp.com",
-				projectId: "raahi-63fed",
-				storageBucket: "raahi-63fed.firebasestorage.app",
-				messagingSenderId: "227077567279",
-				appId: "1:227077567279:web:b4d47e61bba859f89de7da",
-			};
-
-			// Initialize Firebase and Auth
-			const app = initializeApp(firebaseConfig);
-			const auth = getAuth(app);
-
-			const emailInput = document.getElementById("email");
-			const passwordInput = document.getElementById("password");
-			const statusText = document.getElementById("status");
-
-			// Sign Up
-			document
-				.getElementById("signUpBtn")
-				.addEventListener("click", () => {
-					createUserWithEmailAndPassword(
-						auth,
-						emailInput.value,
-						passwordInput.value,
-					)
-						.then((userCredential) =>
-							alert(`Registered: ${userCredential.user.email}`),
-						)
-						.catch((error) => alert(`Error: ${error.message}`));
-				});
-
-			// Sign In
-			document
-				.getElementById("signInBtn")
-				.addEventListener("click", () => {
-					signInWithEmailAndPassword(
-						auth,
-						emailInput.value,
-						passwordInput.value,
-					)
-						.then((userCredential) =>
-							alert(`Signed in: ${userCredential.user.email}`),
-						)
-						.catch((error) => alert(`Error: ${error.message}`));
-				});
-
-			// Listen to Auth State changes
-			onAuthStateChanged(auth, (user) => {
-				if (user) {
-					statusText.innerText = `Currently logged in as: ${user.email}`;
-				} else {
-					statusText.innerText = "No user logged in.";
-				}
-			});
-		</script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAAHI Login</title>
+  </head>
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: #131413;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100px;
+      width: 300px;
+    }
+    .container {
+      border: 1px solid grey;
+      box-shadow: 0px 0px 2px grey;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 20%;
+      height: 50%;
+    }
+    button,
+    select,
+    input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background-color: #232423;
+      border: 1px solid grey;
+      height: 10%;
+      width: 80%;
+    }
+  </style>
+  <body>
+    <img src="logo.png" alt="RAAHI" id="logo" />
+    <div class="container">
+      <h2>Welcome to RAAHI</h2>
+      <h6>Sign in as a tourist or a seller</h6>
+      <label for="prof">Who are you</label>
+      <select name="prof">
+        <option value="tourist">Tourist</option>
+        <option value="seller">seller</option>
+        <option value="admin">admin</option>
+      </select>
+      <label for="email">Enter your E-MAIL</label>
+      <input type="text" id="emailfield" name="email" />
+      <label for="passbox">Enter your Password</label>
+      <input type="password" id="passfield" name="passbox" />
+      <button type="submit">SIGN IN</button>
+      <p id="message"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+  </body>
 </html>
