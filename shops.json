@@ -1,0 +1,66 @@
+{
+    "heritage-shops-udupi": {
+        "name": "Heritage Shops Udupi",
+        "address": "Udupi, Karnataka, India",
+        "contact": "+91 12345 67890",
+        "categories": ["Souvenirs", "Handicrafts", "Local Products"],
+        "opening_hours": {
+            "monday": "10:00 AM - 8:00 PM",
+            "tuesday": "10:00 AM - 8:00 PM",
+            "wednesday": "10:00 AM - 8:00 PM",
+            "thursday": "10:00 AM - 8:00 PM",
+            "friday": "10:00 AM - 8:00 PM",
+            "saturday": "10:00 AM - 8:00 PM",
+            "sunday": "Closed"
+        },
+        "website": "http://www.heritageshopsudupi.com"
+    },
+    {
+        "name": "Udupi Handicrafts",
+        "address": "Udupi, Karnataka, India",
+        "contact": "+91 98765 43210",
+        "categories": ["Handicrafts", "Artisan Products"],
+        "opening_hours": {
+            "monday": "9:00 AM - 7:00 PM",
+            "tuesday": "9:00 AM - 7:00 PM",
+            "wednesday": "9:00 AM - 7:00 PM",
+            "thursday": "9:00 AM - 7:00 PM",
+            "friday": "9:00 AM - 7:00 PM",
+            "saturday": "9:00 AM - 7:00 PM",
+            "sunday": "Closed"
+        },
+        "website": "http://www.udupihandicrafts.com"
+    },
+    {
+        "name": "Udupi Local Market",
+        "address": "Udupi, Karnataka, India",
+        "contact": "+91 54321 09876",
+        "categories": ["Local Products", "Fresh Produce"],
+        "opening_hours": {
+            "monday": "8:00 AM - 6:00 PM",
+            "tuesday": "8:00 AM - 6:00 PM",
+            "wednesday": "8:00 AM - 6:00 PM",
+            "thursday": "8:00 AM - 6:00 PM",
+            "friday": "8:00 AM - 6:00 PM",
+            "saturday": "8:00 AM - 6:00 PM",
+            "sunday": "Closed"
+        },
+        "website": ""
+    },
+    {
+        "name": "Udupi Art Gallery",
+        "address": "Udupi, Karnataka, India",
+        "contact": "+91 67890 12345",
+        "categories": ["Art", "Exhibitions"],
+        "opening_hours": {
+            "monday": "10:00 AM - 6:00 PM",
+            "tuesday": "10:00 AM - 6:00 PM",
+            "wednesday": "10:00 AM - 6:00 PM",
+            "thursday": "10:00 AM - 6:00 PM",
+            "friday": "10:00 AM - 6:00 PM",
+            "saturday": "10:00 AM - 6:00 PM",
+            "sunday": "Closed"
+        },
+        "website": "http://www.udupiartgallery.com"
+    }
+}
