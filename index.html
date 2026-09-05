@@ -1,114 +1,102 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>RAAHI Login</title>
 
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            height: 100vh;
-            width: 100vw;
-            background-color: #131413;
+      body {
+        height: 100vh;
+        width: 100vw;
+        background-color: #131413;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        #logo {
-            position: absolute;
-            top: 0;
-            left: 0;
+      #logo {
+        position: absolute;
+        top: 0;
+        left: 0;
 
-            height: 100px;
-            width: 300px;
-        }
+        height: 100px;
+        width: 300px;
+      }
 
-        .container {
-            border: 1px solid grey;
-            box-shadow: 0 0 2px grey;
+      .container {
+        border: 1px solid grey;
+        box-shadow: 0 0 2px grey;
 
-            color: white;
+        color: white;
 
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-            justify-content: space-evenly;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-evenly;
 
-            width: 20%;
-            height: 50%;
-        }
+        width: 20%;
+        height: 50%;
+      }
 
-        input,
-        select,
-        button {
-            color: white;
-            background-color: #232423;
+      input,
+      select,
+      button {
+        color: white;
+        background-color: #232423;
 
-            border: 1px solid grey;
+        border: 1px solid grey;
 
-            height: 10%;
-            width: 80%;
-        }
+        height: 10%;
+        width: 80%;
+      }
 
-        button {
-            cursor: pointer;
-        }
+      button {
+        cursor: pointer;
+      }
 
-        #message {
-            color: white;
-        }
+      #message {
+        color: white;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
-    <img src="logo.png" alt="RAAHI" id="logo">
+  <body>
+    <img src="logo.png" alt="RAAHI" id="logo" />
 
     <form class="container" id="login-form">
+      <h2>Welcome to RAAHI</h2>
 
-        <h2>Welcome to RAAHI</h2>
+      <h6>Sign in as a tourist or a seller</h6>
 
-        <h6>Sign in as a tourist or a seller</h6>
+      <label for="prof">Who are you</label>
 
-        <label for="prof">Who are you</label>
+      <select id="prof">
+        <option value="tourist">Tourist</option>
+        <option value="seller">Seller</option>
+      </select>
 
-        <select id="prof">
-            <option value="tourist">Tourist</option>
-            <option value="seller">Seller</option>
-        </select>
+      <label for="emailfield">Enter your E-MAIL</label>
 
-        <label for="emailfield">Enter your E-MAIL</label>
+      <input type="email" id="emailfield" required />
 
-        <input
-            type="email"
-            id="emailfield"
-            required
-        >
+      <label for="passfield">Enter your Password</label>
 
-        <label for="passfield">Enter your Password</label>
+      <input type="password" id="passfield" required />
 
-        <input
-            type="password"
-            id="passfield"
-            required
-        >
+      <button type="submit">SIGN IN</button>
+      <button type="button" id="signup">SIGN UP</button>
 
-        <button type="submit">SIGN IN</button>
-        <button type="submit">SIGN UP</button>
-
-        <p id="message"></p>
-
+      <p id="message"></p>
     </form>
-
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -117,31 +105,48 @@
     <script src="supabase.js"></script>
 
     <script>
-        const form = document.querySelector("#login-form");
-        const message = document.querySelector("#message");
+      const form = document.querySelector("#login-form");
+      const message = document.querySelector("#message");
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
+      const signupbtn = document.querySelector("#signup");
 
-            const email = document.querySelector("#emailfield").value;
-            const password = document.querySelector("#passfield").value;
+      signupbtn.addEventListener("click", async () => {
+        const email = document.querySelector("#emailfield").value;
+        const password = document.querySelector("#passfield").value;
 
-            const { data, error } =
-                await supabaseClient.auth.signInWithPassword({
-                    email,
-                    password
-                });
-
-            if (error) {
-                message.textContent = error.message;
-                return;
-            }
-
-            message.textContent = "Login successful!";
-
-            window.location.href = "map.html";
+        const { data, error } = await supabaseClient.auth.signUp({
+          email,
+          password,
         });
-    </script>
 
-</body>
+        if (error) {
+          message.textContent = error.message;
+          return;
+        }
+
+        message.textContent = "Account created!";
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.querySelector("#emailfield").value;
+        const password = document.querySelector("#passfield").value;
+
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (error) {
+          message.textContent = error.message;
+          return;
+        }
+
+        message.textContent = "Login successful!";
+
+        window.location.href = "map.html";
+      });
+    </script>
+  </body>
 </html>
