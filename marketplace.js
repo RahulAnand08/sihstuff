@@ -30,7 +30,7 @@ searchInput.addEventListener("input", function () {
     }
 });
 
-let items-flex=document.querySelector('.items-flex');
+let items=document.querySelector('.items-flex');
 import { mydata } from "./shops.json";
 mydata.forEach((shop) => {
 shop.items.forEach((item) => {
