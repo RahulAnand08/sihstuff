@@ -1,5 +1,6 @@
 {
-    "heritage-shops-udupi": {
+    "heritage-shops-udupi": [
+      {
         "name": "Heritage Shops Udupi",
         "address": "Udupi, Karnataka, India",
         "contact": "+91 12345 67890",
@@ -14,8 +15,8 @@
             "sunday": "Closed"
         },
         "website": "http://www.heritageshopsudupi.com"
-    },
-    {
+      },
+      {
         "name": "Udupi Handicrafts",
         "address": "Udupi, Karnataka, India",
         "contact": "+91 98765 43210",
@@ -62,5 +63,5 @@
             "sunday": "Closed"
         },
         "website": "http://www.udupiartgallery.com"
-    }
+    }]
 }
