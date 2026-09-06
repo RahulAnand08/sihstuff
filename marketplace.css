@@ -89,6 +89,9 @@ body {
 	background-color: #333;
 	color: #ffffff;
 }
+input:focus{
+  outline:none;
+}
 
 .search-bar button {
 	padding: 10px 10px;
