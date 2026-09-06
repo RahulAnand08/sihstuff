@@ -32,6 +32,33 @@ let currentPlaceIndex = 0;
 const awardedPlaceIds = new Set();
 let awardNoticeTimeout;
 
+async function loadUserPoints() {
+    const {
+        data: { user },
+        error: userError,
+    } = await supabaseClient.auth.getUser();
+
+    if (userError || !user) {
+        window.location.replace("index.html");
+        return false;
+    }
+
+    const { data: userData, error: userDataError } = await supabaseClient
+        .from("UserData")
+        .select("points")
+        .eq("userId", user.id)
+        .maybeSingle();
+
+    if (userDataError) {
+        console.error("Could not load user points:", userDataError.message);
+        return false;
+    }
+
+    totalPoints = Number(userData?.points ?? 0);
+    pointsTotal.textContent = totalPoints;
+    return true;
+}
+
 function addPoints(amount) {
     totalPoints += amount;
     pointsTotal.textContent = totalPoints;
@@ -177,7 +204,9 @@ async function positionupdater() {
 
 recenterbut.addEventListener("click", positionupdater);
 
-positionupdater();
+if (await loadUserPoints()) {
+    positionupdater();
+}
 
 function getDistance(lat1, lon1, lat2, lon2) {
     const earthRadius = 6371000;

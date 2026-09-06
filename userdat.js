@@ -16,4 +16,3 @@ const options = {
     headers: { 'x-my-custom-header': 'my-app-name' },
   },
 }
-const supabase = createClient("https://xyzcompany.supabase.co", "your-publishable-key", options)

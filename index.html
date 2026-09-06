@@ -1,170 +1,201 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>RAAHI Login</title>
+		<title>RAAHI Login</title>
 
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
 
-      body {
-        height: 100vh;
-        width: 100vw;
-        background-color: #131413;
+			body {
+				min-height: 100vh;
+				width: 100%;
+				background-color: #131413;
+				padding: 24px 16px;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
 
-      #logo {
-        /* position: absolute; */
-        margin-bottom: 20px;
-        /* top: 0;
+			#logo {
+				/* position: absolute; */
+				margin-bottom: 20px;
+				/* top: 0;
         left: 0; */
-        text-align: center;
+				text-align: center;
 
-        height: auto;
-        width: 150px;
-      }
+				height: auto;
+				width: min(100px, 30vw);
+			}
 
-      .container {
-        font-family: "DM Sans", sans-serif;
-        border: 1px solid grey;
-        border-radius: 10px;
-        padding: 10px;
-        box-shadow: 0 0 2px grey;
+			.container {
+				font-family: "DM Sans", sans-serif;
+				border: 1px solid grey;
+				border-radius: 10px;
+				padding: clamp(20px, 5vw, 32px);
+				box-shadow: 0 0 2px grey;
 
-        color: white;
+				color: white;
 
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: space-evenly;
+				display: flex;
+				flex-flow: column;
+				align-items: center;
+				justify-content: space-evenly;
+				width: min(100%, 420px);
+				min-height: 420px;
+				height: auto;
+			}
 
-        width: 20%;
-        height: 50%;
-      }
+			input,
+			select,
+			button {
+				color: white;
+				background-color: #232423;
 
-      input,
-      select,
-      button {
-        color: white;
-        background-color: #232423;
+				border: 1px solid grey;
+				border-radius: 10px;
 
-        border: 1px solid grey;
-        border-radius: 10px;
+				height: 40px;
+				width: 100%;
+			}
 
-        height: 40px;
-        width: 80%;
-      }
+			button {
+				cursor: pointer;
+			}
 
-      button {
-        cursor: pointer;
-      }
+			#message {
+				color: white;
+			}
 
-      #message {
-        color: white;
-      }
+			.buttons {
+				display: flex;
+				flex-direction: row;
+				gap: 8px;
+				width: 100%;
+			}
 
-      .buttons {
-        display: flex;
-        flex-direction: row;
-        gap: 8px;
-        width: 80%;
-      }
+			.buttons button {
+				width: 100%;
+			}
+		</style>
+	</head>
 
-      .buttons button {
-        width: 100%;
-      }
-    </style>
-  </head>
+	<body>
+		<img src="logo.png" alt="RAAHI" id="logo" />
 
-  <body>
-    <img src="logo.png" alt="RAAHI" id="logo" />
+		<form class="container" id="login-form">
+			<h2 style="margin-bottom: 10px">Sign in</h2>
 
-    <form class="container" id="login-form">
-      <h2 style="margin-bottom: 10px;">Sign in</h2>
+			<label for="prof">Role</label>
 
-      <label for="prof">Role</label>
+			<select id="prof">
+				<option value="tourist">Tourist</option>
+				<option value="seller">Seller</option>
+			</select>
 
-      <select id="prof">
-        <option value="tourist">Tourist</option>
-        <option value="seller">Seller</option>
-      </select>
+			<label for="emailfield">Email</label>
 
-      <label for="emailfield">Email</label>
+			<input type="email" id="emailfield" required />
 
-      <input type="email" id="emailfield" required />
+			<label for="passfield">Password</label>
 
-      <label for="passfield">Password</label>
+			<input type="password" id="passfield" required />
+			<div class="buttons">
+				<button type="submit">SIGN IN</button>
+				<button type="button" id="signup">SIGN UP</button>
+			</div>
 
-      <input type="password" id="passfield" required />
-      <div class="buttons">
-        <button type="submit">SIGN IN</button>
-        <button type="button" id="signup">SIGN UP</button>
-      </div>
+			<p id="message"></p>
+		</form>
 
-      <p id="message"></p>
-    </form>
+		<!-- Supabase -->
+		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+		<!-- Your Supabase setup -->
+		<script src="supabase.js"></script>
 
-    <!-- Your Supabase setup -->
-    <script src="supabase.js"></script>
+		<script>
+			const form = document.querySelector("#login-form");
+			const message = document.querySelector("#message");
 
-    <script>
-      const form = document.querySelector("#login-form");
-      const message = document.querySelector("#message");
+			const signupbtn = document.querySelector("#signup");
 
-      const signupbtn = document.querySelector("#signup");
+			signupbtn.addEventListener("click", async () => {
+				const email = document.querySelector("#emailfield").value;
+				const password = document.querySelector("#passfield").value;
 
-      signupbtn.addEventListener("click", async () => {
-        const email = document.querySelector("#emailfield").value;
-        const password = document.querySelector("#passfield").value;
+				const { data, error } = await supabaseClient.auth.signUp({
+					email,
+					password,
+				});
 
-        const { data, error } = await supabaseClient.auth.signUp({
-          email,
-          password,
-        });
+				if (error) {
+					message.textContent = error.message;
+					return;
+				}
 
-        if (error) {
-          message.textContent = error.message;
-          return;
-        }
+				if (!data.user) {
+					message.textContent = "Could not create the account. Please try again.";
+					return;
+				}
 
-        message.textContent = "Account created!";
-      });
+				const { error: profileError } = await supabaseClient
+					.from("UserData")
+					.upsert(
+						{
+							userId: data.user.id,
+							points: 0,
+							visitedPlaces: 0,
+						},
+						{ onConflict: "userId", ignoreDuplicates: true },
+					);
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+				if (profileError) {
+					message.textContent = `Account created, but profile setup failed: ${profileError.message}`;
+					return;
+				}
 
-        const email = document.querySelector("#emailfield").value;
-        const password = document.querySelector("#passfield").value;
+				message.textContent = "Account created! You can now sign in.";
+			});
 
-        const { data, error } = await supabaseClient.auth.signInWithPassword({
-          email,
-          password,
-        });
+			form.addEventListener("submit", async (e) => {
+				e.preventDefault();
 
-        if (error) {
-          message.textContent = error.message;
-          return;
-        }
+				const email = document.querySelector("#emailfield").value;
+				const password = document.querySelector("#passfield").value;
 
-        message.textContent = "Login successful!";
+				const { data, error } =
+					await supabaseClient.auth.signInWithPassword({
+						email,
+						password,
+					});
 
-        window.location.href = "map.html";
-      });
-    </script>
-  </body>
+				if (error) {
+					message.textContent = error.message;
+					return;
+				}
+
+				message.textContent = "Login successful!";
+
+				window.location.href = "map.html";
+			});
+
+			async function checkSession() {
+				const { data: { session } } = await supabaseClient.auth.getSession();
+
+				if (session) {
+					window.location.href = "map.html";
+				}
+			}
+		</script>
+	</body>
 </html>
