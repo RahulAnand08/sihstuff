@@ -37,6 +37,14 @@ body {
 	color: white;
 }
 
+.points-display {
+	float: right;
+	display: block;
+	color: #f2f2f2;
+	padding: 15px;
+	font-size: 1rem;
+}
+
 .main-nav a.active {
 	background-color: #2f4e4a;
 	color: white;
@@ -48,6 +56,9 @@ body {
 
 @media screen and (max-width: 600px) {
 	.main-nav a:not(:first-child) {
+		display: none;
+	}
+	.main-nav .points-display {
 		display: none;
 	}
 	.main-nav a.icon {
@@ -67,6 +78,11 @@ body {
 		top: 0;
 	}
 	.main-nav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+	.main-nav.responsive .points-display {
 		float: none;
 		display: block;
 		text-align: left;

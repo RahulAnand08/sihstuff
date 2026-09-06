@@ -1,4 +1,29 @@
 let items=document.querySelector('.items-flex');
+
+async function loadUserPoints() {
+    const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
+
+    if (userError || !user) {
+        window.location.replace("index.html");
+        return;
+    }
+
+    const { data: userData, error: userDataError } = await supabaseClient
+        .from("UserData")
+        .select("points")
+        .eq("userId", user.id)
+        .maybeSingle();
+
+    if (userDataError) {
+        console.error("Could not load user points:", userDataError.message);
+        return;
+    }
+
+    document.querySelector("#points-total").textContent = Number(userData?.points ?? 0);
+}
+
+loadUserPoints();
+
 import mydata from "./shops.json" with {type:"json"};
 mydata.forEach((shop) => {
 shop.items.forEach((item) => {

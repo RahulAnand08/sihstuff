@@ -28,9 +28,11 @@ const aiAssistant = document.querySelector("#ai-assistant-moreinfo");
 const aiAskButton = document.querySelector("#ai-ask-button");
 
 let totalPoints = 0;
+let currentUserId = null;
 let currentPlaceIndex = 0;
 const awardedPlaceIds = new Set();
 let awardNoticeTimeout;
+let pointsSavePromise = Promise.resolve();
 
 async function loadUserPoints() {
     const {
@@ -42,6 +44,8 @@ async function loadUserPoints() {
         window.location.replace("index.html");
         return false;
     }
+
+    currentUserId = user.id;
 
     const { data: userData, error: userDataError } = await supabaseClient
         .from("UserData")
@@ -63,6 +67,17 @@ function addPoints(amount) {
     totalPoints += amount;
     pointsTotal.textContent = totalPoints;
     pointsAwardNotice.classList.add("visible");
+
+    pointsSavePromise = pointsSavePromise.then(async () => {
+        const { error } = await supabaseClient
+            .from("UserData")
+            .update({ points: totalPoints })
+            .eq("userId", currentUserId);
+
+        if (error) {
+            console.error("Could not save user points:", error.message);
+        }
+    });
 
     clearTimeout(awardNoticeTimeout);
     awardNoticeTimeout = setTimeout(() => {
