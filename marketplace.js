@@ -31,11 +31,12 @@ searchInput.addEventListener("input", function () {
 });
 
 let items=document.querySelector('.items-flex');
-import { mydata } from "./shops.json";
+import { mydata } from "./shops.json" with {type:"json"};
 mydata.forEach((shop) => {
 shop.items.forEach((item) => {
 let temp = document.createElement("div");
 temp.className = "item-flex";
+items.appendChild(temp);
 temp.innerHTML = `
               <img class="item-image" src="${shop.src}">
               <p class="shopname">${shop.name}</p>
@@ -46,6 +47,5 @@ temp.innerHTML = `
               <p>Open hours: ${shop.openhours}</p>
               <p>Contacts: ${shop.contact}</p>
 `;
-  items.appendChild(temp);
 });
 });

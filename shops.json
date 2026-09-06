@@ -1,100 +1,98 @@
-{
-  "heritage-shops-udupi": [
-    {
-      "name": "Heritage Shops Udupi",
-      "src": "images/heritage-shops.jpg",
-      "opendays": "Monday - Saturday",
-      "openhours": "10:00 AM - 8:00 PM",
-      "contact": "+91 12345 67890",
-      "items": [
-        {
-          "name": "Traditional Wooden Craft",
-          "desc": "Handcrafted wooden decoration inspired by traditional Udupi art.",
-          "price": 450
-        },
-        {
-          "name": "Udupi Temple Souvenir",
-          "desc": "A small handcrafted souvenir representing the culture of Udupi.",
-          "price": 250
-        },
-        {
-          "name": "Handmade Coconut Shell Bowl",
-          "desc": "Eco-friendly bowl made from locally sourced coconut shells.",
-          "price": 180
-        }
-      ]
-    },
-    {
-      "name": "Udupi Handicrafts",
-      "src": "images/udupi-handicrafts.jpg",
-      "opendays": "Monday - Saturday",
-      "openhours": "9:00 AM - 7:00 PM",
-      "contact": "+91 98765 43210",
-      "items": [
-        {
-          "name": "Coconut Shell Lamp",
-          "desc": "Decorative lamp handcrafted using coconut shells and natural materials.",
-          "price": 600
-        },
-        {
-          "name": "Palm Leaf Basket",
-          "desc": "Traditional handwoven basket made from locally sourced palm leaves.",
-          "price": 350
-        },
-        {
-          "name": "Handwoven Wall Hanging",
-          "desc": "Colorful handmade wall decoration created by local artisans.",
-          "price": 500
-        }
-      ]
-    },
-    {
-      "name": "Udupi Local Market",
-      "src": "images/udupi-market.jpg",
-      "opendays": "Monday - Saturday",
-      "openhours": "8:00 AM - 6:00 PM",
-      "contact": "+91 54321 09876",
-      "items": [
-        {
-          "name": "Local Cashew Nuts",
-          "desc": "Fresh locally sourced cashew nuts from the Udupi region.",
-          "price": 320
-        },
-        {
-          "name": "Coconut Oil",
-          "desc": "Traditional cold-pressed coconut oil made from local coconuts.",
-          "price": 280
-        },
-        {
-          "name": "Local Spice Pack",
-          "desc": "A selection of locally sourced spices commonly used in Udupi cuisine.",
-          "price": 220
-        }
-      ]
-    },
-    {
-      "name": "Udupi Art Gallery",
-      "src": "images/udupi-art-gallery.jpg",
-      "opendays": "Monday - Saturday",
-      "openhours": "10:00 AM - 6:00 PM",
-      "contact": "+91 67890 12345",
-      "items": [
-        {
-          "name": "Udupi Landscape Painting",
-          "desc": "Original artwork depicting the landscapes and scenery of coastal Karnataka.",
-          "price": 1500
-        },
-        {
-          "name": "Traditional Yakshagana Art",
-          "desc": "Colorful artwork inspired by the traditional Yakshagana performance style.",
-          "price": 2000
-        },
-        {
-          "name": "Coastal Karnataka Sketch",
-          "desc": "Hand-drawn sketch showcasing the architecture and culture of coastal Karnataka.",
-          "price": 900
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "name": "Heritage Shops Udupi",
+    "src": "images/heritage-shops.jpg",
+    "opendays": "Monday - Saturday",
+    "openhours": "10:00 AM - 8:00 PM",
+    "contact": "+91 12345 67890",
+    "items": [
+      {
+        "name": "Traditional Wooden Craft",
+        "desc": "Handcrafted wooden decoration inspired by traditional Udupi art.",
+        "price": 450
+      },
+      {
+        "name": "Udupi Temple Souvenir",
+        "desc": "A small handcrafted souvenir representing the culture of Udupi.",
+        "price": 250
+      },
+      {
+        "name": "Handmade Coconut Shell Bowl",
+        "desc": "Eco-friendly bowl made from locally sourced coconut shells.",
+        "price": 180
+      }
+    ]
+  },
+  {
+    "name": "Udupi Handicrafts",
+    "src": "images/udupi-handicrafts.jpg",
+    "opendays": "Monday - Saturday",
+    "openhours": "9:00 AM - 7:00 PM",
+    "contact": "+91 98765 43210",
+    "items": [
+      {
+        "name": "Coconut Shell Lamp",
+        "desc": "Decorative lamp handcrafted using coconut shells and natural materials.",
+        "price": 600
+      },
+      {
+        "name": "Palm Leaf Basket",
+        "desc": "Traditional handwoven basket made from locally sourced palm leaves.",
+        "price": 350
+      },
+      {
+        "name": "Handwoven Wall Hanging",
+        "desc": "Colorful handmade wall decoration created by local artisans.",
+        "price": 500
+      }
+    ]
+  },
+  {
+    "name": "Udupi Local Market",
+    "src": "images/udupi-market.jpg",
+    "opendays": "Monday - Saturday",
+    "openhours": "8:00 AM - 6:00 PM",
+    "contact": "+91 54321 09876",
+    "items": [
+      {
+        "name": "Local Cashew Nuts",
+        "desc": "Fresh locally sourced cashew nuts from the Udupi region.",
+        "price": 320
+      },
+      {
+        "name": "Coconut Oil",
+        "desc": "Traditional cold-pressed coconut oil made from local coconuts.",
+        "price": 280
+      },
+      {
+        "name": "Local Spice Pack",
+        "desc": "A selection of locally sourced spices commonly used in Udupi cuisine.",
+        "price": 220
+      }
+    ]
+  },
+  {
+    "name": "Udupi Art Gallery",
+    "src": "images/udupi-art-gallery.jpg",
+    "opendays": "Monday - Saturday",
+    "openhours": "10:00 AM - 6:00 PM",
+    "contact": "+91 67890 12345",
+    "items": [
+      {
+        "name": "Udupi Landscape Painting",
+        "desc": "Original artwork depicting the landscapes and scenery of coastal Karnataka.",
+        "price": 1500
+      },
+      {
+        "name": "Traditional Yakshagana Art",
+        "desc": "Colorful artwork inspired by the traditional Yakshagana performance style.",
+        "price": 2000
+      },
+      {
+        "name": "Coastal Karnataka Sketch",
+        "desc": "Hand-drawn sketch showcasing the architecture and culture of coastal Karnataka.",
+        "price": 900
+      }
+    ]
+  }
+]
