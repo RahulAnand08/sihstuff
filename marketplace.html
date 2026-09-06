@@ -31,105 +31,10 @@
 		</div>
 		<div class="search-bar">
 			<input type="text" placeholder="Search for items or shops" />
-			<!-- <button>Search</button> -->
 		</div>
 		<div class="items-flex">
-			<div class="item-flex">
-				<img
-					class="item-image"
-					src="https://images.pexels.com/photos/5028727/pexels-photo-5028727.jpeg"
-					alt=""
-				/>
-				<p class="shopname">A SHOP</p>
-				<h3 class="item-name">Item Name 1</h3>
-				<p>Item Description</p>
-				<p>Price: $XX.XX</p>
-			</div>
-			<div class="item-flex">
-				<img
-					class="item-image"
-					src="https://images.pexels.com/photos/32403975/pexels-photo-32403975.jpeg"
-					alt=""
-				/>
-				<p class="shopname">B SHOP</p>
-				<h3 class="item-name">Item Name 2</h3>
-				<p>Item Description</p>
-				<p>Price: $XX.XX</p>
-			</div>
-			<div class="item-flex">
-				<img
-					class="item-image"
-					src="https://images.pexels.com/photos/26692145/pexels-photo-26692145.jpeg"
-					alt=""
-				/>
-				<p class="shopname">C SHOP</p>
-				<h3 class="item-name">Item Name 3</h3>
-				<p>Item Description</p>
-				<p>Price: $XX.XX</p>
-			</div>
-			<div class="item-flex">
-				<img
-					class="item-image"
-					src="https://images.pexels.com/photos/14122227/pexels-photo-14122227.jpeg"
-					alt=""
-				/>
-				<p class="shopname">D SHOP</p>
-				<h3 class="item-name">Item Name 4</h3>
-				<p>Item Description</p>
-				<p>Price: $XX.XX</p>
-			</div>
-			<div class="item-flex">
-				<img
-					class="item-image"
-					src="https://images.pexels.com/photos/37838574/pexels-photo-37838574.jpeg"
-					alt=""
-				/>
-				<p class="shopname">E SHOP</p>
-				<h3 class="item-name">Item Name 5</h3>
-				<p>Item Description</p>
-				<p>Price: $XX.XX</p>
-			</div>
-			<div class="item-flex">
-				<img
-					class="item-image"
-					src="https://images.pexels.com/photos/18363710/pexels-photo-18363710.jpeg"
-					alt=""
-				/>
-				<p class="shopname">F SHOP</p>
-				<h3 class="item-name">Item Name 6</h3>
-				<p>Item Description</p>
-				<p>Price: $XX.XX</p>
-			</div>
-			<div class="item-flex">
-				<img
-					class="item-image"
-					src="https://images.pexels.com/photos/29016023/pexels-photo-29016023.jpeg"
-					alt=""
-				/>
-				<p class="shopname">G SHOP</p>
-				<h3 class="item-name">Item Name 7</h3>
-				<p>Item Description</p>
-				<p>Price: $XX.XX</p>
-			</div>
-		</div>
+		
+    </div>
 	</body>
 	<script src="marketplace.js"></script>
-	<script type="module">
-		import { mydata } from "./shops.json";
-		mydata.forEach((shop) => {
-			shop.items.forEach((item) => {
-				let temp = document.createElement("div");
-				temp.className = "item-flex";
-				temp.innerHTML = `
-              <img class="item-image" src="${shop.src}">
-              <p class="shopname">${shop.name}</p>
-              <h3 class="item-name">${item.name}</h3>
-              <p>${item.desc}</p>
-              <p>Price: ₹${item.price}</p>
-              <p>Open</p>
-      `;
-			});
-		});
-		let items = document.querySelector(".items-flex");
-	</script>
 </html>

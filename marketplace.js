@@ -29,3 +29,23 @@ searchInput.addEventListener("input", function () {
         }
     }
 });
+
+let items-flex=document.querySelector('.items-flex');
+import { mydata } from "./shops.json";
+mydata.forEach((shop) => {
+shop.items.forEach((item) => {
+let temp = document.createElement("div");
+temp.className = "item-flex";
+temp.innerHTML = `
+              <img class="item-image" src="${shop.src}">
+              <p class="shopname">${shop.name}</p>
+              <h3 class="item-name">${item.name}</h3>
+              <p>${item.desc}</p>
+              <p>Price: ₹${item.price}</p>
+              <p>Open Days: ${shop.opendays}</p>
+              <p>Open hours: ${shop.openhours}</p>
+              <p>Contacts: ${shop.contact}</p>
+`;
+  items.appendChild(temp);
+});
+});
