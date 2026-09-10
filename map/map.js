@@ -2,6 +2,8 @@ import * as maplibregl from "https://unpkg.com/maplibre-gl@^6.4.1/dist/maplibre-
 
 import data from "./places.json" with { type: "json" };
 
+import "../login/login.js"
+
 const map = new maplibregl.Map({
     container: "map",
     style: "https://tiles.openfreemap.org/styles/liberty",
@@ -50,7 +52,7 @@ async function loadUserPoints() {
     const { data: userData, error: userDataError } = await supabaseClient
         .from("UserData")
         .select("points")
-        .eq("userId", user.id)
+        .eq("id", user.id)
         .maybeSingle();
 
     if (userDataError) {
@@ -72,7 +74,7 @@ function addPoints(amount) {
         const { error } = await supabaseClient
             .from("UserData")
             .update({ points: totalPoints })
-            .eq("userId", currentUserId);
+            .eq("id", currentUserId);
 
         if (error) {
             console.error("Could not save user points:", error.message);
