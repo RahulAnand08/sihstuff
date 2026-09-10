@@ -8,49 +8,29 @@ const resetbtn = document.querySelector("#resetbtn");
 const signoutbtn = document.querySelector("#signout");
 const supabase = window.supabase.createClient("https://jxasieuljeucnbmlneve.supabase.co", "sb_publishable_YYOWZb4RZ3u3gurJd0gqmg_s7GKRE0y");
 
+/// AESTHETICCCCCCCCCCCCCCCCCCCCC
 const username = document.querySelector("#username");
 const pass = document.querySelector("#passfield");
 const e_mail = document.querySelector("#emailfield");
-
-if (pass) {
-  pass.addEventListener("focus", () => {
-    if (pass.value == "Enter a password") {
-      pass.value = "";
+let fields=[pass,e_mail,username];
+let defaults=["Enter a password","Enter E-Mail","Enter a display name"];
+for(let i=0;i<3;i++){
+if (fields[i]) {
+  fields[i].addEventListener("focus", () => {
+    if (fields[i].value == defaults[i]) {
+      fields[i].value = "";
     }
   });
-  pass.addEventListener("blur", () => {
-    if (pass.value == "") {
-      pass.value = "Enter a password";
-    }
-  });
-}
-
-if (e_mail) {
-  e_mail.addEventListener("focus", () => {
-    if (e_mail.value == "Enter E-Mail") {
-      e_mail.value = "";
-    }
-  });
-  e_mail.addEventListener("blur", () => {
-    if (e_mail.value == "") {
-      e_mail.value = "Enter E-Mail";
+  fields[i].addEventListener("blur", () => {
+    if (fields[i].value == "") {
+      fields[i].value = defaults[i];
     }
   });
 }
-
-if (username) {
-  username.addEventListener("focus", () => {
-    if (username.value == "Enter a display name") {
-      username.value = "";
-    }
-  });
-  username.addEventListener("blur", () => {
-    if (username.value == "") {
-      username.value = "Enter a display name";
-    }
-  });
 }
+///////////////////////////////////////////////
 
+// Redirect helper funcsssssssssssssssss//////////
 function getRedirect() {
   const role = document.querySelector("#prof").value;
   if (role === "tourist") {
@@ -67,21 +47,36 @@ function getrole() {
   return role;
 }
 
+function makeredirecturl(role){
+  if (role === "tourist") {
+    return "https://rahulanand08.github.io/sihstuff/map/map.html";
+  }
+  if (role === "seller") {
+    return "https://rahulanand08.github.io/sihstuff/marketplace/marketplace.html";
+  }
+  return null;
+} 
+///////////////////////////////////////////////////
+
+//SIGNUP//////////////////////////////////////////////
 if (signupbtn) {
   signupbtn.addEventListener("click", async () => {
+    // signup 
     const email = document.querySelector("#emailfield").value;
     const password = document.querySelector("#passfield").value;
-    const redirect = getRedirect();
-    if (!redirect) {
-      message.textContent = "Please select a profile.";
-      return;
-    }
-    const {
-      data,
-      error
-    } = await supabase.auth.signUp({
+    const UserName = document.querySelector("#username").value;
+    const role=getrole();
+    const {data,error} = await supabase.auth.signUp({
       email,
-      password
+      password,
+      options:{
+        emailRedirectTo: "https://rahulanand08.github.io/sihstuff",
+        data: {
+        ROLE:role,
+        POINTS:0,
+        USERNAME:UserName
+        }
+      }
     });
     if (error) {
       message.textContent = error.message;
@@ -91,55 +86,30 @@ if (signupbtn) {
       message.textContent = "Could not create the account. Please try again.";
       return;
     }
-    const ID = data.user.id;
-    const userole = getrole();
-    const UserName = document.querySelector("#username");
-    const {
-      error: tablerror
-    } = await supabase.from("UserData").insert({
-      id: ID,
-      created_at: data.user.created_at,
-      points: 0,
-      role: userole,
-      username: UserName.value
-    });
-    if (tablerror) {
-      message.textContent = tablerror.message;
-      return;
-    }
-    window.location.href = redirect;
   });
 }
-
+//////////////////////////////////////////////////////////////
 if (signinbtn) {
   signinbtn.addEventListener("click", async () => {
     const email = document.querySelector("#emailfield").value;
     const password = document.querySelector("#passfield").value;
-    const {
-      error
-    } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
+    const {error} = await supabase.auth.signInWithPassword({email,password});
     if (error) {
       message.textContent = error.message;
       return;
     }
-    const userdat = await supabase.auth.getUser();
-    const uuid = userdat.data.user.id;
-    const {
-      data,
-      error: sqlerror
-    } = await supabase.from("UserData").select("*").eq("id", uuid).single();
-    if (sqlerror) {
-      message.textContent = sqlerror.message;
+    const { data: {user} }=await supabase.auth.getUser();
+    const uuid=user.id;
+    const {data,error:e} = await supabase.from("UserData").upsert({
+      id: uuid,
+      role: user.user_metadata.ROLE,
+      points: user.user_metadata.POINTS
+    });
+    if (e) {
+      message.textContent = e.message;
       return;
     }
-    if (data.role == "tourist") {
-      window.location.href = "https://rahulanand08.github.io/sihstuff/map/map.html";
-    } else if (data.role == "seller") {
-      window.location.href = "https://rahulanand08.github.io/sihstuff/marketplace/marketplace.html";
-    }
+    window.location.href=makeredirecturl(user.user_metadata.ROLE);
   });
 }
 
@@ -152,7 +122,7 @@ if (signoutbtn) {
       message.textContent = error.message;
       return;
     }
-    window.location.href = "https://rahulanand08.github.io/sihstuff/login/login.html";
+    window.location.href = "https://rahulanand08.github.io/sihstuff/";
   });
 }
 
