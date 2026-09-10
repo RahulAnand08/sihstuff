@@ -18,12 +18,8 @@ body {
 }
 
 #logo {
-	/* position: absolute; */
 	margin-bottom: 20px;
-	/* top: 0;
-        left: 0; */
 	text-align: center;
-
 	height: auto;
 	width: min(100px, 30vw);
 }
@@ -36,7 +32,7 @@ body {
 	box-shadow: 0 0 2px grey;
 
 	color: white;
-
+  gap:10px;
 	display: flex;
 	flex-flow: column;
 	align-items: center;
@@ -67,13 +63,20 @@ button {
 	color: white;
 }
 
-.buttons {
+.signinup,.oauth {
 	display: flex;
 	flex-direction: row;
 	gap: 8px;
 	width: 100%;
 }
-
-.buttons button {
+.oauth{
+  width:50%;
+  height:100px;
+}
+.oauth>button>img{
+ height:90%;
+ width:90%;
+}
+.signinup button {
 	width: 100%;
 }

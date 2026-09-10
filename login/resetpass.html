@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RAAHI Forgot Password</title>
+		<link rel="stylesheet" type="" href="./login.css" />
+	</head>
+
+	<body>
+		<img src="logo.png" alt="RAAHI" id="logo" />
+		<form class="container" id="login-form">
+			<h2 style="margin-bottom: 10px">Forgot Password</h2>
+			<label for="passfield">New Password</label>
+			<input type="password" id="passfield" required />
+			<label for="passfield">Confirm New Password</label>
+			<input type="password" id="confirmpassfield" required />
+      <button id="login" type="button">Back to Login</button>
+			<p id="message"></p>
+		</form>
+
+		<!-- Supabase -->
+		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+		<script type="module" src="login.js"></script>
+	</body>
+</html>
