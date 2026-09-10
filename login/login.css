@@ -80,3 +80,16 @@ button {
 .signinup button {
 	width: 100%;
 }
+select{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size:1em;
+  color:#898989;
+}
+select>option{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}

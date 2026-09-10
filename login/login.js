@@ -159,7 +159,7 @@ if(backtologin){
       return;
       }
       else{
-        window.location.href="/sihstuff"
+        window.location.href="login.html"
       }
     }
   });
