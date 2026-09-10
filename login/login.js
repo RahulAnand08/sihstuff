@@ -22,7 +22,7 @@ const {data,error}=await
 			return;
     }
   if(role=="tourist"){
-  window.location.href="/map/map.html";
+  window.location.href="/sihstuff/map/map.html";
   }
   else if(role=="seller"){
   window.location.href="/marketplace/marketplace.html";
@@ -44,27 +44,21 @@ let role = document.querySelector("#prof").value;
   window.location.href="/map/map.html";
   }
   else if(role=="seller"){
-  window.location.href="/marketplace/marketplace.html";
+  window.location.href="/sihstuff/marketplace/marketplace.html";
   }
 });
 }
-if(googleauthbtn){
-let role = document.querySelector("#prof").value;
-  googleauthbtn.addEventListener("click",async()=>{
-  const { data, error } = await
-  supabase.auth.signInWithOAuth({ provider:'google' });
-  if(error){
-    message.textContent = error.message;
+const signoutbtn = document.querySelector("#signout");
+if(signoutbtn){
+signoutbtn.addEventListener("click",async ()=>{
+const {error} = await supabase.auth.signOut();
+if(error){
+message.textContent = error.message;
     return;
-  }
-  if(role=="tourist"){
-  window.location.href="/map/map.html";
-  }
-  else if(role=="seller"){
-  window.location.href="/marketplace/marketplace.html";
-  }
-  });
-}
+}  
+window.location.href="/login/login.html";
+});}
+
 
 if(gitauthbtn){
   gitauthbtn.addEventListener("click",async()=>{
@@ -90,14 +84,27 @@ let role = document.querySelector("#prof").value;
   });
 }
 
-const signoutbtn = document.querySelector("#signout");
-if(signoutbtn){
-signoutbtn.addEventListener("click",async ()=>{
-const {error} = await supabase.auth.signOut();
-if(error){
-message.textContent = error.message;
+if(googleauthbtn){
+  googleauthbtn.addEventListener("click",async()=>{
+let role = document.querySelector("#prof").value;
+  let redirect;
+  if(role=="tourist"){
+  redirect="https://rahulanand08.github.io/sihstuff/map/map.html";
+  }
+  else if(role=="seller"){
+  redirect="https://rahulanand08.github.io/sihstuff/marketplace/marketplace.html";
+  }
+  const { data, error } = await
+      supabase.auth.signInWithOAuth({
+    provider:'google',
+    options: {
+      redirectTo: redirect
+    }  
+  });
+  if(error){
+    message.textContent = error.message;
     return;
-}  
-window.location.href="/login/login.html";
-});}
+  }
+  });
+}
 
