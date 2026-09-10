@@ -12,25 +12,34 @@
 		<img src="logo.png" alt="RAAHI" id="logo" />
 
 		<form class="container" id="login-form">
-			<h2 style="margin-bottom: 10px">Sign in</h2>
+			<h2 style="margin-bottom: 10px">Sign Up</h2>
+
+			<label for="prof">Role</label>
+
+			<select id="prof">
+				<option value="tourist">Tourist</option>
+				<option value="seller">Seller</option>
+			</select>
+        
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" value="Enter a display name" required/>
 
 			<label for="emailfield">Email</label>
 
-			<input type="email" id="emailfield" required />
+			<input type="email" id="emailfield" value="Enter E-Mail" required />
 
 			<label for="passfield">Password</label>
 
-			<input type="password" id="passfield" required />
+			<input type="password" id="passfield" value="Enter a password" required />
 			<div class="signinup">
-				<button type="button" id="signin">SIGN IN</button>
-				<!-- <button type="button" id="signup">SIGN UP</button> -->
+				<button type="button" id="signup">SIGN UP</button>
 			</div>
 			<div class="oauth">
 				<button type="button" id="googleauth"><img src="google.svg" alt=""></button>
 				<button type="button" id="gitauth"><img src="github.svg" alt=""></button>
 			</div>
       <a href="forgotpass.html">Forgot Password</a>
-      <a href="signup.html">SignUp</a>
+      <a href="login.html">Login</a>
 			<p id="message"></p>
 		</form>
 

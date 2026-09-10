@@ -93,3 +93,12 @@ select>option{
   align-items: center;
   justify-content: center;
 }
+input{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size:1em;
+  color:#898989;
+
+}
