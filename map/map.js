@@ -6,11 +6,6 @@ signupbtn.addEventListener("click", async () => {
     const email = document.querySelector("#emailfield").value;
     const password = document.querySelector("#passfield").value;
 
-<<<<<<< HEAD:index.js
-    const { data, error } = await supabaseClient.auth.signUp({
-        email,
-        password,
-=======
 import "../login/login.js"
 
 const map = new maplibregl.Map({
@@ -88,7 +83,6 @@ function addPoints(amount) {
         if (error) {
             console.error("Could not save user points:", error.message);
         }
->>>>>>> a9fbecda4b37c7e930bd48e2f4255792bb3848bc:map/map.js
     });
 
     if (error) {
