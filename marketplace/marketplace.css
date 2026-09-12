@@ -1,26 +1,26 @@
 body {
-	margin: 0;
+	padding:0px;
+  margin: 0px;
 	font-family: "DM Sans", sans-serif;
 	background-color: #231111;
+  display:flex;
+  flex-flow:column;
 }
 
 .main-nav {
-	overflow: hidden;
+  display:flex;
+  align-items: center;
 	background-color: #333;
-	margin: 20px;
+  height:80px;
+  margin: 20px;
 	border-radius: 10px;
+  justify-content: space-between;
+  position: relative;
+overflow:hidden
 }
-
-.main-nav a:nth-child(2), .main-nav a:first-child {
-	float: left;
-	display: block;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 15px 15px;
-	text-decoration: none;
-	font-size: 1rem;
+.main-nav>img{
+  height:100%;
 }
-
 .main-nav a {
 	float: right;
 	display: block;
@@ -167,3 +167,4 @@ input:focus{
 	margin-bottom: 10px;
   }
 }
+

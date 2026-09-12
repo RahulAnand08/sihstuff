@@ -65,17 +65,12 @@ if (signupbtn) {
     const email = document.querySelector("#emailfield").value;
     const password = document.querySelector("#passfield").value;
     const UserName = document.querySelector("#username").value;
-    const role=getrole();
+    const therole=getrole();
     const {data,error} = await supabase.auth.signUp({
       email,
       password,
       options:{
         emailRedirectTo: "https://rahulanand08.github.io/sihstuff",
-        data: {
-        ROLE:role,
-        POINTS:0,
-        USERNAME:UserName
-        }
       }
     });
     if (error) {
@@ -86,30 +81,63 @@ if (signupbtn) {
       message.textContent = "Could not create the account. Please try again.";
       return;
     }
+    const uuid=data.user.id;
+    const {error:e} = await supabase.from("UserData").upsert({
+      id: uuid,
+      role: therole,
+      username: UserName,
+      points: 0,
+    });
   });
 }
 //////////////////////////////////////////////////////////////
 if (signinbtn) {
   signinbtn.addEventListener("click", async () => {
+
     const email = document.querySelector("#emailfield").value;
     const password = document.querySelector("#passfield").value;
-    const {error} = await supabase.auth.signInWithPassword({email,password});
+
+    // SIGN IN
+    const {
+      data,
+      error
+    } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
     if (error) {
       message.textContent = error.message;
       return;
     }
-    const { data: {user} }=await supabase.auth.getUser();
-    const uuid=user.id;
-    const {data,error:e} = await supabase.from("UserData").upsert({
-      id: uuid,
-      role: user.user_metadata.ROLE,
-      points: user.user_metadata.POINTS
-    });
+
+    // Get the logged-in user
+    const user = data.user;
+
+    // Get their role from UserData
+    const {
+      data: userData,
+      error: e
+    } = await supabase
+      .from("UserData")
+      .select("role")
+      .eq("id", user.id)
+      .single();
+
     if (e) {
       message.textContent = e.message;
       return;
     }
-    window.location.href=makeredirecturl(user.user_metadata.ROLE);
+
+    // Redirect according to role
+    const redirect = makeredirecturl(userData.role);
+
+    if (!redirect) {
+      message.textContent = "Invalid user role.";
+      return;
+    }
+
+    window.location.href = redirect;
   });
 }
 
