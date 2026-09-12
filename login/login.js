@@ -88,6 +88,10 @@ if (signupbtn) {
       username: UserName,
       points: 0,
     });
+    if (e) {
+      message.textContent = e.message;
+      return;
+    }
   });
 }
 //////////////////////////////////////////////////////////////
