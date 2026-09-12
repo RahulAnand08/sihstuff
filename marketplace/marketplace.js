@@ -1,25 +1,24 @@
+import { auth, db } from "../firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
 let items=document.querySelector('.items-flex');
 
 async function loadUserPoints() {
-    const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
+    const user = await new Promise((resolve) => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            unsubscribe();
+            resolve(currentUser);
+        });
+    });
 
-    if (userError || !user) {
-        window.location.replace("index.html");
+    if (!user) {
+        window.location.replace("../index.html");
         return;
     }
 
-    const { data: userData, error: userDataError } = await supabaseClient
-        .from("UserData")
-        .select("points")
-        .eq("userId", user.id)
-        .maybeSingle();
-
-    if (userDataError) {
-        console.error("Could not load user points:", userDataError.message);
-        return;
-    }
-
-    document.querySelector("#points-total").textContent = Number(userData?.points ?? 0);
+    const userData = await getDoc(doc(db, "UserData", user.uid));
+    document.querySelector("#points-total").textContent = Number(userData.data()?.points ?? 0);
 }
 
 loadUserPoints();

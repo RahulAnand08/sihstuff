@@ -1,12 +1,7 @@
-const form = document.querySelector("#login-form");
-const message = document.querySelector("#message");
-const signupbtn = document.querySelector("#signup");
-
-signupbtn.addEventListener("click", async () => {
-    const email = document.querySelector("#emailfield").value;
-    const password = document.querySelector("#passfield").value;
-
-import "../login/login.js"
+import { auth, db } from "../firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.9.0/dist/maplibre-gl.mjs';
 
 const map = new maplibregl.Map({
     container: "map",
@@ -41,30 +36,22 @@ let awardNoticeTimeout;
 let pointsSavePromise = Promise.resolve();
 
 async function loadUserPoints() {
-    const {
-        data: { user },
-        error: userError,
-    } = await supabaseClient.auth.getUser();
+    const user = await new Promise((resolve) => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            unsubscribe();
+            resolve(currentUser);
+        });
+    });
 
-    if (userError || !user) {
-        window.location.replace("index.html");
+    if (!user) {
+        window.location.replace("../index.html");
         return false;
     }
 
     currentUserId = user.id;
 
-    const { data: userData, error: userDataError } = await supabaseClient
-        .from("UserData")
-        .select("points")
-        .eq("id", user.id)
-        .maybeSingle();
-
-    if (userDataError) {
-        console.error("Could not load user points:", userDataError.message);
-        return false;
-    }
-
-    totalPoints = Number(userData?.points ?? 0);
+    const userData = await getDoc(doc(db, "UserData", user.uid));
+    totalPoints = Number(userData.data()?.points ?? 0);
     pointsTotal.textContent = totalPoints;
     return true;
 }
@@ -75,71 +62,12 @@ function addPoints(amount) {
     pointsAwardNotice.classList.add("visible");
 
     pointsSavePromise = pointsSavePromise.then(async () => {
-        const { error } = await supabaseClient
-            .from("UserData")
-            .update({ points: totalPoints })
-            .eq("id", currentUserId);
-
-        if (error) {
+        try {
+            await updateDoc(doc(db, "UserData", currentUserId), { points: totalPoints });
+        } catch (error) {
             console.error("Could not save user points:", error.message);
         }
     });
-
-    if (error) {
-        message.textContent = error.message;
-        return;
-    }
-
-    if (!data.user) {
-        message.textContent = "Could not create the account. Please try again.";
-        return;
-    }
-
-    const { error: profileError } = await supabaseClient
-        .from("UserData")
-        .upsert(
-            {
-                userId: data.user.id,
-                points: 0,
-                visitedPlaces: 0,
-            },
-            { onConflict: "userId", ignoreDuplicates: true },
-        );
-
-    if (profileError) {
-        message.textContent = `Account created, but profile setup failed: ${profileError.message}`;
-        return;
-    }
-
-    message.textContent = "Account created! You can now sign in.";
-});
-
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email = document.querySelector("#emailfield").value;
-    const password = document.querySelector("#passfield").value;
-
-    const { data, error } =
-        await supabaseClient.auth.signInWithPassword({
-            email,
-            password,
-        });
-
-    if (error) {
-        message.textContent = error.message;
-        return;
-    }
-
-    message.textContent = "Login successful!";
-
-    window.location.href = "map.html";
-});
-
-async function checkSession() {
-    const { data: { session } } = await supabaseClient.auth.getSession();
-
-    if (session) {
-        window.location.href = "map.html";
-    }
 }
+
+loadUserPoints();
