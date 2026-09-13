@@ -438,7 +438,7 @@ async function submit() {
         {
             method: "POST",
             headers: {
-                "x-goog-api-key": window.env.API_KEY,
+                "x-goog-api-key": "AQ.Ab8RN6JkQv55X50cQwLsvTnwa_5Z-xrNKgcuMyYgYfaOjAmKRw",
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
