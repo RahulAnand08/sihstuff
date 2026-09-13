@@ -50,7 +50,7 @@ async function loadUserPoints() {
         return false;
     }
 
-    currentUserId = user.id;
+    currentUserId = user.uid;
 
     const userData = await getDoc(doc(db, "UserData", user.uid));
     totalPoints = Number(userData.data()?.points) ?? "Could not load user points";

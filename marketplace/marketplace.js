@@ -2,7 +2,7 @@ import { auth, db } from "../firebase.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-let items=document.querySelector('.items-flex');
+let items = document.querySelector('.items-flex');
 
 async function loadUserPoints() {
     const user = await new Promise((resolve) => {
@@ -23,13 +23,13 @@ async function loadUserPoints() {
 
 loadUserPoints();
 
-import mydata from "./shops.json" with {type:"json"};
+import mydata from "./shops.json" with {type: "json"};
 mydata.forEach((shop) => {
-shop.items.forEach((item) => {
-let temp = document.createElement("div");
-temp.className = "item-flex";
-items.appendChild(temp);
-temp.innerHTML = `
+    shop.items.forEach((item) => {
+        let temp = document.createElement("div");
+        temp.className = "item-flex";
+        items.appendChild(temp);
+        temp.innerHTML = `
               <img class="item-image" src="${shop.src}">
               <p class="shopname">${shop.name}</p>
               <h3 class="item-name">${item.name}</h3>
@@ -39,7 +39,7 @@ temp.innerHTML = `
               <p>Open hours: ${shop.openhours}</p>
               <p>Contacts: ${shop.contact}</p>
 `;
-});
+    });
 });
 
 function changeNavBar() {
