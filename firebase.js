@@ -6,14 +6,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-// Replace these values with the configuration from Firebase Console.
 const firebaseConfig = {
-    apiKey: "__FIREBASE_API_KEY__",
+    apiKey: "AIzaSyBnBV-odPDJy3xlGQYgAOjuHslzZrvHXgI",
     authDomain: "raahi-sih.firebaseapp.com",
     projectId: "raahi-sih",
     storageBucket: "raahi-sih.firebasestorage.app",
     messagingSenderId: "282663917118",
-    appId: "__FIREBASE_APP_ID__"
+    appId: "1:282663917118:web:df50de43f49aa110a7236f"
 };
 
 const app = initializeApp(firebaseConfig);
