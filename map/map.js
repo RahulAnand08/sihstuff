@@ -2,7 +2,7 @@ import { auth, db } from "../firebase.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.9.0/dist/maplibre-gl.mjs';
-
+import data from './places.json' with { type: 'json' };
 const map = new maplibregl.Map({
     container: "map",
     style: "https://tiles.openfreemap.org/styles/liberty",
