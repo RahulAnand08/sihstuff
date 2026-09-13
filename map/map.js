@@ -457,7 +457,7 @@ aiAskButton.addEventListener("click", submit);
 
 function onScanSuccess(decodedText) {
     console.log(`Ticket matched:  + ${decodedText}`);
-    if (decodedText == "heritedge") {
+    if (decodedText == "raahi") {
         addPoints(10);
         qron = 1;
         toggleqrscreen();
